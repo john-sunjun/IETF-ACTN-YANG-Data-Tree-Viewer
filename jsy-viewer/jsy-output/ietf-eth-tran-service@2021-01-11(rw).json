@@ -1,0 +1,272 @@
+{
+   "etht-svc": {
+      "globals": {
+         "named-bandwidth-profiles[bandwidth-profile-name]": [
+            {
+               "bandwidth-profile-name": "rw string",
+               "bandwidth-profile-type": "rw ietf-eth-tran-types:bandwidth-profile-type(identityref(bandwidth-profile-type[4]))",
+               "CIR": "rw uint64",
+               "CBS": "rw uint64",
+               "EIR": "rw uint64",
+               "EBS": "rw uint64",
+               "color-aware": "rw boolean",
+               "coupling-flag": "rw boolean"
+            }
+         ]
+      },
+      "etht-svc-instances[etht-svc-name]": [
+         {
+            "etht-svc-name": "rw string",
+            "etht-svc-title": "rw string",
+            "etht-svc-descr": "rw string",
+            "etht-svc-customer": "rw string",
+            "etht-svc-type": "rw ietf-eth-tran-types:service-type(identityref(service-type[3]))",
+            "etht-svc-lifecycle": "rw ietf-eth-tran-types:lifecycle-status(identityref(lifecycle-status[3]))",
+            "admin-status": "rw identityref(ietf-te-types:tunnel-admin-state-type[2])",
+            "te-topology-identifier": {
+               "provider-id": "rw ietf-te-types:te-global-id(uint32)",
+               "client-id": "rw ietf-te-types:te-global-id(uint32)",
+               "topology-id": "rw ietf-te-types:te-topology-id(union*)"
+            },
+            "resilience": {
+               "protection": {
+                  "enable": "rw boolean",
+                  "protection-type": "rw identityref(ietf-te-types:lsp-protection-type[8])",
+                  "protection-reversion-disable": "rw boolean",
+                  "hold-off-time": "rw uint32",
+                  "wait-to-revert": "rw uint16",
+                  "aps-signal-id": "rw uint8*"
+               },
+               "restoration": {
+                  "enable": "rw boolean",
+                  "restoration-type": "rw identityref(ietf-te-types:lsp-restoration-type[2])",
+                  "restoration-scheme": "rw identityref(ietf-te-types:restoration-scheme-type[3])",
+                  "restoration-reversion-disable": "rw boolean",
+                  "hold-off-time": "rw uint32",
+                  "wait-to-restore": "rw uint16",
+                  "wait-to-revert": "rw uint16"
+               }
+            },
+            "etht-svc-end-points[etht-svc-end-point-name]": [
+               {
+                  "etht-svc-end-point-name": "rw string",
+                  "etht-svc-end-point-id": "rw string",
+                  "etht-svc-end-point-descr": "rw string",
+                  "topology-role": "rw identityref(ietf-eth-tran-types:topology-role)",
+                  "service-classification-type": "rw identityref(ietf-eth-tran-types:service-classification-type[2])",
+                  "split-horizon-group": "rw string",
+                  "resilience": {},
+                  "vlan-operations": {
+                     "choice direction": {
+                        "case symmetrical": {
+                           "symmetrical-operation": {
+                              "pop-tags": "rw uint8*",
+                              "push-tags": {
+                                 "outer-tag": {
+                                    "tag-type": "rw ietf-eth-tran-types:eth-tag-type(identityref(eth-vlan-tag-type[2]))",
+                                    "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)",
+                                    "default-pcp": "rw uint8*"
+                                 },
+                                 "second-tag": {
+                                    "tag-type": "rw ietf-eth-tran-types:eth-tag-type(identityref(eth-vlan-tag-type[2]))",
+                                    "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)",
+                                    "default-pcp": "rw uint8*"
+                                 }
+                              }
+                           }
+                        },
+                        "case asymmetrical": {
+                           "asymmetrical-operation": {
+                              "ingress": {
+                                 "pop-tags": "rw uint8*",
+                                 "push-tags": {
+                                    "outer-tag": {
+                                       "tag-type": "rw ietf-eth-tran-types:eth-tag-type(identityref(eth-vlan-tag-type[2]))",
+                                       "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)",
+                                       "default-pcp": "rw uint8*"
+                                    },
+                                    "second-tag": {
+                                       "tag-type": "rw ietf-eth-tran-types:eth-tag-type(identityref(eth-vlan-tag-type[2]))",
+                                       "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)",
+                                       "default-pcp": "rw uint8*"
+                                    }
+                                 }
+                              },
+                              "egress": {
+                                 "pop-tags": "rw uint8*",
+                                 "push-tags": {
+                                    "outer-tag": {
+                                       "tag-type": "rw ietf-eth-tran-types:eth-tag-type(identityref(eth-vlan-tag-type[2]))",
+                                       "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)",
+                                       "default-pcp": "rw uint8*"
+                                    },
+                                    "second-tag": {
+                                       "tag-type": "rw ietf-eth-tran-types:eth-tag-type(identityref(eth-vlan-tag-type[2]))",
+                                       "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)",
+                                       "default-pcp": "rw uint8*"
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "etht-svc-access-points[access-point-id]": [
+                     {
+                        "access-point-id": "rw string",
+                        "access-node-id": "rw ietf-te-types:te-node-id(ietf-yang-types:dotted-quad(string*))",
+                        "access-ltp-id": "rw ietf-te-types:te-tp-id(union*)",
+                        "access-role": "rw identityref(ietf-eth-tran-types:access-role)",
+                        "pm-config": {
+                           "pm-enable": "rw boolean",
+                           "sending-rate-high": "rw uint64",
+                           "sending-rate-low": "rw uint64",
+                           "receiving-rate-high": "rw uint64",
+                           "receiving-rate-low": "rw uint64"
+                        }
+                     }
+                  ],
+                  "choice service-classification": {
+                     "case port-classification": {},
+                     "case vlan-classification": {
+                        "outer-tag": {
+                           "tag-type": "rw ietf-eth-tran-types:eth-tag-classify(identityref(eth-vlan-tag-classify[3]))",
+                           "choice individual-bundling-vlan": {
+                              "case individual-vlan": {
+                                 "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)"
+                              },
+                              "case vlan-bundling": {
+                                 "vlan-range": "rw ietf-eth-tran-types:vid-range-type(string*)"
+                              }
+                           }
+                        },
+                        "second-tag": {
+                           "tag-type": "rw ietf-eth-tran-types:eth-tag-classify(identityref(eth-vlan-tag-classify[3]))",
+                           "choice individual-bundling-vlan": {
+                              "case individual-vlan": {
+                                 "vlan-value": "rw ietf-eth-tran-types:vlanid(uint16*)"
+                              },
+                              "case vlan-bundling": {
+                                 "vlan-range": "rw ietf-eth-tran-types:vid-range-type(string*)"
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "choice direction": {
+                     "case symmetrical": {
+                        "ingress-egress-bandwidth-profile": {
+                           "choice style": {
+                              "case named": {
+                                 "bandwidth-profile-name": "rw leafref(/ethtsvc:etht-svc/ethtsvc:globals/ethtsvc:named-bandwidth-profiles/ethtsvc:bandwidth-profile-name)"
+                              },
+                              "case value": {
+                                 "bandwidth-profile-type": "rw ietf-eth-tran-types:bandwidth-profile-type(identityref(bandwidth-profile-type[4]))",
+                                 "CIR": "rw uint64",
+                                 "CBS": "rw uint64",
+                                 "EIR": "rw uint64",
+                                 "EBS": "rw uint64",
+                                 "color-aware": "rw boolean",
+                                 "coupling-flag": "rw boolean"
+                              }
+                           }
+                        }
+                     },
+                     "case asymmetrical": {
+                        "ingress-bandwidth-profile": {
+                           "choice style": {
+                              "case named": {
+                                 "bandwidth-profile-name": "rw leafref(/ethtsvc:etht-svc/ethtsvc:globals/ethtsvc:named-bandwidth-profiles/ethtsvc:bandwidth-profile-name)"
+                              },
+                              "case value": {
+                                 "bandwidth-profile-type": "rw ietf-eth-tran-types:bandwidth-profile-type(identityref(bandwidth-profile-type[4]))",
+                                 "CIR": "rw uint64",
+                                 "CBS": "rw uint64",
+                                 "EIR": "rw uint64",
+                                 "EBS": "rw uint64",
+                                 "color-aware": "rw boolean",
+                                 "coupling-flag": "rw boolean"
+                              }
+                           }
+                        },
+                        "egress-bandwidth-profile": {
+                           "choice style": {
+                              "case named": {
+                                 "bandwidth-profile-name": "rw leafref(/ethtsvc:etht-svc/ethtsvc:globals/ethtsvc:named-bandwidth-profiles/ethtsvc:bandwidth-profile-name)"
+                              },
+                              "case value": {
+                                 "bandwidth-profile-type": "rw ietf-eth-tran-types:bandwidth-profile-type(identityref(bandwidth-profile-type[4]))",
+                                 "CIR": "rw uint64",
+                                 "CBS": "rw uint64",
+                                 "EIR": "rw uint64",
+                                 "EBS": "rw uint64",
+                                 "color-aware": "rw boolean",
+                                 "coupling-flag": "rw boolean"
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            ],
+            "underlay": {
+               "choice technology": {
+                  "case native-ethernet": {
+                     "eth-tunnels[name]": [
+                        {
+                           "name": "rw leafref(/te:te/te:tunnels/te:tunnel/te:name)",
+                           "encoding": "rw identityref(ietf-te-types:lsp-encoding-types[11])",
+                           "switching-type": "rw identityref(ietf-te-types:switching-capabilities[8])"
+                        }
+                     ]
+                  },
+                  "case frame-base": {
+                     "otn-tunnels[name]": [
+                        {
+                           "name": "rw leafref(/te:te/te:tunnels/te:tunnel/te:name)",
+                           "encoding": "rw identityref(ietf-te-types:lsp-encoding-types[11])",
+                           "switching-type": "rw identityref(ietf-te-types:switching-capabilities[8])"
+                        }
+                     ]
+                  },
+                  "case mpls-tp": {
+                     "pw": {
+                        "pw-id": "rw string",
+                        "pw-name": "rw string",
+                        "transmit-label": "rw ietf-routing-types:mpls-label(union*)",
+                        "receive-label": "rw ietf-routing-types:mpls-label(union*)",
+                        "encapsulation-type": "rw identityref(ietf-eth-tran-types:encapsulation-type)",
+                        "ingress-bandwidth-profile": {
+                           "choice style": {
+                              "case named": {
+                                 "bandwidth-profile-name": "rw leafref(/ethtsvc:etht-svc/ethtsvc:globals/ethtsvc:named-bandwidth-profiles/ethtsvc:bandwidth-profile-name)"
+                              },
+                              "case value": {
+                                 "bandwidth-profile-type": "rw ietf-eth-tran-types:bandwidth-profile-type(identityref(bandwidth-profile-type[4]))",
+                                 "CIR": "rw uint64",
+                                 "CBS": "rw uint64",
+                                 "EIR": "rw uint64",
+                                 "EBS": "rw uint64"
+                              }
+                           }
+                        },
+                        "pw-paths[path-id]": [
+                           {
+                              "path-id": "rw uint8",
+                              "tp-tunnels[name]": [
+                                 {
+                                    "name": "rw string"
+                                 }
+                              ]
+                           }
+                        ]
+                     }
+                  }
+               },
+               "src-split-horizon-group": "rw string",
+               "dst-split-horizon-group": "rw string"
+            }
+         }
+      ]
+   }
+}

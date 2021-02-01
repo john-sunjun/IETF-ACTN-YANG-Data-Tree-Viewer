@@ -1,0 +1,31 @@
+{
+   "tunnels-path-compute": {
+      "input": {
+         "path-compute-info": {}
+      },
+      "output": {
+         "path-compute-result": {}
+      }
+   },
+   "tunnels-actions": {
+      "input": {
+         "tunnel-info": {
+            "choice filter-type": {
+               "case all-tunnels": {
+                  "all": "rw empty"
+               },
+               "case one-tunnel": {
+                  "tunnel": "rw tunnel-ref(leafref(/te:te/te:tunnels/te:tunnel/te:name))"
+               }
+            }
+         },
+         "action-info": {
+            "action": "rw identityref(tunnel-actions-type[1])",
+            "disruptive": "rw empty"
+         }
+      },
+      "output": {
+         "action-result": "rw identityref(ietf-te-types:te-action-result[3])"
+      }
+   }
+}

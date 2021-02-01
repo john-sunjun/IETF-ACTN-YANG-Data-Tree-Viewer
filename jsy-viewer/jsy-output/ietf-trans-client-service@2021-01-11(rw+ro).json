@@ -1,0 +1,42 @@
+{
+   "client-svc": {
+      "client-svc-instances[client-svc-name]": [
+         {
+            "client-svc-name": "rw string",
+            "client-svc-title": "rw string",
+            "client-svc-descr": "rw string",
+            "client-svc-customer": "rw string",
+            "admin-status": "rw identityref(ietf-te-types:tunnel-admin-state-type[2])",
+            "direction": "rw identityref(ietf-trans-client-svc-types:direction[2])",
+            "resilience": {},
+            "src-access-ports": {
+               "access-node-id": "rw ietf-te-types:te-node-id(ietf-yang-types:dotted-quad(string*))",
+               "access-ltp-id": "rw ietf-te-types:te-tp-id(union*)",
+               "client-signal": "rw identityref(ietf-layer1-types:client-signal[24])"
+            },
+            "dst-access-ports": {
+               "access-node-id": "rw ietf-te-types:te-node-id(ietf-yang-types:dotted-quad(string*))",
+               "access-ltp-id": "rw ietf-te-types:te-tp-id(union*)",
+               "client-signal": "rw identityref(ietf-layer1-types:client-signal[24])"
+            },
+            "te-topology-identifier": {
+               "provider-id": "rw ietf-te-types:te-global-id(uint32)",
+               "client-id": "rw ietf-te-types:te-global-id(uint32)",
+               "topology-id": "rw ietf-te-types:te-topology-id(union*)"
+            },
+            "svc-tunnels[tunnel-name]": [
+               {
+                  "tunnel-name": "rw string"
+               }
+            ],
+            "operational-state": "ro identityref(ietf-te-types:tunnel-state-type[2])",
+            "provisioning-state": "ro identityref(ietf-te-types:lsp-state-type[9])",
+            "creation-time": "ro ietf-yang-types:date-and-time(string*)",
+            "last-updated-time": "ro ietf-yang-types:date-and-time(string*)",
+            "created-by": "ro string",
+            "last-updated-by": "ro string",
+            "owned-by": "ro string"
+         }
+      ]
+   }
+}
