@@ -7,5 +7,5 @@ Click the link below to have a try.
 
 Usage tip: CTRL + left mouse key click would pop up a dialog to display complete tooltip content.
 
-https://github.com/john-sunjun/IETF-ACTN-YANG-Data-Tree-Viewer/blob/main/jsy-viewer/jsy-view.html
+ https://john-sunjun.github.io/IETF-ACTN-YANG-Data-Tree-Viewer/jsy-viewer/jsy-view.html
 <img src="https://github.com/john-sunjun/IETF-ACTN-YANG-Data-Tree-Viewer/blob/main/screenshot.png">
