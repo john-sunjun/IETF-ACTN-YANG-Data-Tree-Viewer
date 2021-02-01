@@ -5,6 +5,6 @@ It can simplify the understanding of the ACTN YANG models and the editing of RES
 
 Usage tip: CTRL + left mouse key click would pop up a dialog to display complete tooltip content. 
 
-Here is the <a href="https://john-sunjun.github.io/IETF-ACTN-YANG-Data-Tree-Viewer/jsy-viewer/jsy-view.html" target="_blank">Demo</a> 
-<a href="https://john-sunjun.github.io/IETF-ACTN-YANG-Data-Tree-Viewer/jsy-viewer/jsy-view.html" target="_blank">
+Here is the <a href="https://john-sunjun.github.io/IETF-ACTN-YANG-Data-Tree-Viewer/jsy-viewer/jsy-view.html" window.open(this.href)>Demo</a> 
+<a href="https://john-sunjun.github.io/IETF-ACTN-YANG-Data-Tree-Viewer/jsy-viewer/jsy-view.html" window.open(this.href)>
 <img src="https://github.com/john-sunjun/IETF-ACTN-YANG-Data-Tree-Viewer/blob/main/screenshot.png"></a>
