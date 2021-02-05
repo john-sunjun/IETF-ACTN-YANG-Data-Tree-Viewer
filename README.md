@@ -1,7 +1,7 @@
-# IETF-ACTN-YANG-Data-Tree-Viewe
-This tool can visualize the ACTN Transport YANG Data Tree and output JSON data template as well.
+# IETF-ACTN-YANG-Data-Tree-Viewer
+This tool can visualize ACTN Transport YANG Data Tree and output JSON data templates as well.
 
-It can simplify the understanding of the ACTN YANG models and the editing of REST API test data.
+It simplifies the understanding of the ACTN YANG models and the editing of REST API test data.
 
 Usage tip: CTRL + left mouse key click would pop up a dialog to display complete tooltip content. 
 
