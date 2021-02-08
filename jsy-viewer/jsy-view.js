@@ -62,15 +62,12 @@ function jsyView() {
                 m.children[1].onclick = hasType ? onClickModule : null
             })
             if (naviView.currentNode) loadDstView()
-        } else {
-            naviView.mList.forEach(m => {
-                if (!m.children[1].id) {
-                    m.style.display = e.target.checked ? '' : 'none'
-                }
-            })
         }
+        naviView.mList.forEach(m => {
+            m.style.display = checkAllMod.checked || m.children[1].id ? '' : 'none'
+        })
     }
-    createCheckBox(naviHead, 'all')
+    var checkAllMod = createCheckBox(naviHead, 'all')
 
     // dstView: dstHead(dstPath+buttons) + body
     var dstHead = document.createElement('div')
