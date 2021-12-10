@@ -1,0 +1,2 @@
+node jsyang.js
+pause

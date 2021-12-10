@@ -1,0 +1,14 @@
+{
+    "name": "jsyang",
+    "bin": "jsyang.js",
+    "pkg": {
+        "scripts": [],
+        "assets": [
+            "favicon.ico",
+            "jsy-view.js",
+            "jsy-view.css",
+            "jsy-view.html",
+            "lib/*.*"
+        ]
+    }
+}
